@@ -195,6 +195,9 @@
 			);
 			mainGroup = 4401B9532E03FCC50025D1A6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				4401B9892E03FF6A0025D1A6 /* XCRemoteSwiftPackageReference "Camera" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4401B95D2E03FCC50025D1A6 /* Products */;
 			projectDirPath = "";
@@ -597,6 +600,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4401B9892E03FF6A0025D1A6 /* XCRemoteSwiftPackageReference "Camera" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Mijick/Camera.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 4401B9542E03FCC50025D1A6 /* Project object */;
 }
