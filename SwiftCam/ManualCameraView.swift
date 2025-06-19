@@ -68,28 +68,28 @@ struct ManualCameraScreen: MCameraScreen {
 private extension ManualCameraScreen {
     /// Верхняя панель с переключением камеры и настройками вспышки
     func createTopBar() -> some View {
-        HStack {
+        HStack(spacing: 16) {
             Button(action: switchCamera) {
                 Image(systemName: "arrow.triangle.2.circlepath.camera")
-                    .padding()
-                    .background(Color.black.opacity(0.6))
+                    .font(.title2)
+                    .padding(8)
+                    .background(.ultraThinMaterial)
                     .clipShape(Circle())
-                    .foregroundColor(.white)
             }
             Spacer()
             Button(action: toggleFlash) {
                 Image(systemName: flashEnabled ? "bolt.fill" : "bolt.slash")
-                    .padding()
-                    .background(Color.black.opacity(0.6))
+                    .font(.title2)
+                    .padding(8)
+                    .background(.ultraThinMaterial)
                     .clipShape(Circle())
-                    .foregroundColor(.white)
             }
             Button(action: toggleLight) {
                 Image(systemName: lightEnabled ? "flashlight.on.fill" : "flashlight.off.fill")
-                    .padding()
-                    .background(Color.black.opacity(0.6))
+                    .font(.title2)
+                    .padding(8)
+                    .background(.ultraThinMaterial)
                     .clipShape(Circle())
-                    .foregroundColor(.white)
             }
         }
         .padding()
@@ -99,35 +99,31 @@ private extension ManualCameraScreen {
     func createControls() -> some View {
         VStack(spacing: 12) {
             Slider(value: Binding(get: { iso }, set: { iso = $0; try? setISO($0) }), in: isoRange)
-                .tint(.white)
-            Text("ISO: \(Int(iso))").foregroundColor(.white)
+            Text("ISO: \(Int(iso))")
 
             Slider(value: Binding(get: { exposure }, set: { exposure = $0; try? setExposureDuration(CMTime(seconds: $0, preferredTimescale: 1000)) }), in: exposureRange)
-                .tint(.white)
-            Text(String(format: "Выдержка: %.0f мс", exposure * 1000)).foregroundColor(.white)
+            Text(String(format: "Выдержка: %.0f мс", exposure * 1000))
 
             Slider(value: Binding(get: { exposureBias }, set: { exposureBias = $0; try? setExposureTargetBias($0) }), in: exposureBiasRange)
-                .tint(.white)
-            Text(String(format: "Экспозиция: %.1f EV", exposureBias)).foregroundColor(.white)
+            Text(String(format: "Экспозиция: %.1f EV", exposureBias))
 
             Slider(value: Binding(get: { zoom }, set: { zoom = $0; try? setZoomFactor($0) }), in: zoomRange)
-                .tint(.white)
-            Text(String(format: "Зум: %.1fx", zoom)).foregroundColor(.white)
+            Text(String(format: "Зум: %.1fx", zoom))
 
             Slider(value: Binding(get: { frameRate }, set: { frameRate = $0; try? setFrameRate(Int32($0)) }), in: frameRange, step: 1)
-                .tint(.white)
-            Text("FPS: \(Int(frameRate))").foregroundColor(.white)
+            Text("FPS: \(Int(frameRate))")
 
             Toggle("Сетка", isOn: Binding(get: { gridEnabled }, set: { gridEnabled = $0; setGridVisibility($0) }))
-                .tint(.white)
 
             Button(action: captureOutput) {
-                Circle().stroke(Color.white, lineWidth: 4).frame(width: 70, height: 70)
+                Circle()
+                    .fill(Color.white)
+                    .frame(width: 70, height: 70)
             }
             .padding(.top, 8)
         }
         .padding()
-        .background(Color.black.opacity(0.6))
+        .background(.ultraThinMaterial)
         .cornerRadius(16)
         .padding()
     }
