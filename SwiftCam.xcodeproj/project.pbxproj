@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4425DE752E0412A50084C301 /* MijickCamera in Frameworks */ = {isa = PBXBuildFile; productRef = 4425DE742E0412A50084C301 /* MijickCamera */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		4401B96D2E03FCC90025D1A6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,9 +33,22 @@
 		4401B9762E03FCC90025D1A6 /* SwiftCamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4425DE772E04146E0084C301 /* Exceptions for "SwiftCam" folder in "SwiftCam" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 4401B95B2E03FCC50025D1A6 /* SwiftCam */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4401B95E2E03FCC50025D1A6 /* SwiftCam */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4425DE772E04146E0084C301 /* Exceptions for "SwiftCam" folder in "SwiftCam" target */,
+			);
 			path = SwiftCam;
 			sourceTree = "<group>";
 		};
@@ -52,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4425DE752E0412A50084C301 /* MijickCamera in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +96,7 @@
 				4401B95E2E03FCC50025D1A6 /* SwiftCam */,
 				4401B96F2E03FCC90025D1A6 /* SwiftCamTests */,
 				4401B9792E03FCC90025D1A6 /* SwiftCamUITests */,
+				4425DE732E0412A50084C301 /* Frameworks */,
 				4401B95D2E03FCC50025D1A6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +109,13 @@
 				4401B9762E03FCC90025D1A6 /* SwiftCamUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4425DE732E0412A50084C301 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +138,7 @@
 			);
 			name = SwiftCam;
 			packageProductDependencies = (
+				4425DE742E0412A50084C301 /* MijickCamera */,
 			);
 			productName = SwiftCam;
 			productReference = 4401B95C2E03FCC50025D1A6 /* SwiftCam.app */;
@@ -399,11 +426,13 @@
 				DEVELOPMENT_TEAM = C4L8Q37YC4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-                                GENERATE_INFOPLIST_FILE = YES;
-                                INFOPLIST_KEY_CFBundleDisplayName = SwiftCam;
-                                INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
-                                INFOPLIST_KEY_NSCameraUsageDescription = "Для съемки фотографий приложению требуется доступ к камере";
-                                "INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftCam/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SwiftCam;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Для съемки фотографий приложению требуется доступ к камере";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Для съемки фотографий приложению требуется доступ к микрофону";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
@@ -442,10 +471,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-                                INFOPLIST_KEY_CFBundleDisplayName = SwiftCam;
-                                INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
-                                INFOPLIST_KEY_NSCameraUsageDescription = "Для съемки фотографий приложению требуется доступ к камере";
-                                "INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				INFOPLIST_FILE = SwiftCam/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SwiftCam;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Для съемки фотографий приложению требуется доступ к камере";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Для съемки фотографий приложению требуется доступ к микрофону";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
@@ -613,6 +644,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4425DE742E0412A50084C301 /* MijickCamera */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4401B9892E03FF6A0025D1A6 /* XCRemoteSwiftPackageReference "Camera" */;
+			productName = MijickCamera;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4401B9542E03FCC50025D1A6 /* Project object */;
 }
