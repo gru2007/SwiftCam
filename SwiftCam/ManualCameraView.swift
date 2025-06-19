@@ -102,7 +102,7 @@ private extension ManualCameraScreen {
             Text(String(format: "Зум: %.1fx", zoom))
 
             Slider(value: Binding(get: { frameRate }, set: { frameRate = $0; try? setFrameRate(Int32($0)) }), in: frameRange, step: 1)
-            Text("FPS: \(Int(frameRate))")
+            Text("Кадров/с: \(Int(frameRate))")
 
             Toggle("Сетка", isOn: Binding(get: { gridEnabled }, set: { gridEnabled = $0; setGridVisibility($0) }))
 
@@ -134,7 +134,7 @@ private extension ManualCameraScreen {
     /// Включение и выключение фонарика
     func toggleLight() {
         lightEnabled.toggle()
-        setLightMode(lightEnabled ? .on : .off)
+        try? setLightMode(lightEnabled ? .on : .off)
     }
 }
 
