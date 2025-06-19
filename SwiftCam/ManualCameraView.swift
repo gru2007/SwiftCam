@@ -26,6 +26,7 @@ struct ManualCameraScreen: MCameraScreen {
     // Параметры управления
     @State private var iso: Float = 100
     @State private var exposure: Double = 0.01
+    @State private var exposureBias: Float = 0
     @State private var zoom: CGFloat = 1
     @State private var frameRate: Double = 30
     @State private var flashEnabled: Bool = false
@@ -35,6 +36,7 @@ struct ManualCameraScreen: MCameraScreen {
     // Диапазоны значений (примерные)
     private let isoRange: ClosedRange<Float> = 50...800
     private let exposureRange: ClosedRange<Double> = 0.001...1
+    private let exposureBiasRange: ClosedRange<Float> = -2...2
     private let zoomRange: ClosedRange<CGFloat> = 1...5
     private let frameRange: ClosedRange<Double> = 24...60
 
@@ -53,6 +55,7 @@ struct ManualCameraScreen: MCameraScreen {
         .onAppear {
             iso = cameraManager.attributes.iso
             exposure = cameraManager.attributes.exposureDuration.seconds
+            exposureBias = cameraManager.attributes.exposureTargetBias
             zoom = cameraManager.attributes.zoomFactor
             frameRate = Double(cameraManager.attributes.frameRate)
             flashEnabled = cameraManager.attributes.flashMode != .off
@@ -102,6 +105,10 @@ private extension ManualCameraScreen {
             Slider(value: Binding(get: { exposure }, set: { exposure = $0; try? setExposureDuration(CMTime(seconds: $0, preferredTimescale: 1000)) }), in: exposureRange)
                 .tint(.white)
             Text(String(format: "Выдержка: %.0f мс", exposure * 1000)).foregroundColor(.white)
+
+            Slider(value: Binding(get: { exposureBias }, set: { exposureBias = $0; try? setExposureTargetBias($0) }), in: exposureBiasRange)
+                .tint(.white)
+            Text(String(format: "Экспозиция: %.1f EV", exposureBias)).foregroundColor(.white)
 
             Slider(value: Binding(get: { zoom }, set: { zoom = $0; try? setZoomFactor($0) }), in: zoomRange)
                 .tint(.white)
